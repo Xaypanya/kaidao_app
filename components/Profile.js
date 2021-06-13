@@ -5,15 +5,11 @@ import {Button} from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 
 
-export default function Profile({navigation}) {
+export default function Profile({navigation, route}) {
 
-    // const onPressHandler = ()=>{
-    //     navigation.goBack();
-    // }
+    const { AvatarImg, name} = route.params;
 
     let {BgContainer, container, ContentContainer,AvatarImage} = styles;
-
-    const avatar = require('../assets/images/Icon/Xaypanya.jpg');
 
     return (
         <View style={BgContainer}>
@@ -21,9 +17,9 @@ export default function Profile({navigation}) {
                 <View style={ContentContainer}>
                     <Image
                     style={AvatarImage}
-                    source={avatar}
+                    source={AvatarImg}
                     />
-                    <Text style={{color: '#000000',fontFamily: 'Defago-Bold', fontSize: 16,marginBottom: 10}}>Xaypanya Phongsa</Text>
+                    <Text style={{color: '#000000',fontFamily: 'Defago-Bold', fontSize: 16,marginBottom: 10}}>{name ? name.toUpperCase() : 'Octopus Kaidao'}</Text>
                     <Text style={{color: '#000000',fontFamily: 'Defago-Bold', fontSize: 16,marginBottom: 10}}>ເມນູຕິດດາວ: 2</Text>
                     <Button block danger style={{width: 150, height: 35, borderRadius: 10}}>
                     <MaterialIcons name="exit-to-app" size={24} color="#FFF" style={{marginRight: 5}}/>

@@ -9,9 +9,9 @@ import firebase from "firebase";
 
 const Loading = ({navigation}) => {
 
-    useEffect(()=> {
-        checkIfLoggedIn();
-    },[]);
+    // useEffect(()=> {
+    //     checkIfLoggedIn();
+    // },[]);
     
     const checkIfLoggedIn = () => {
         firebase.auth().onAuthStateChanged((user)=>{

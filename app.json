@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/ic_launcher.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.kaidao.dev"
     },
     "web": {
       "favicon": "./assets/favicon.png"

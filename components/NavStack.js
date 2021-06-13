@@ -11,24 +11,24 @@ import Loading from "./Loading";
 import { firebaseConfig } from "./Config";
 import firebase from "firebase";
 
-!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+// !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 
 export const NavStack = ()=>{
 
   const Stack = createStackNavigator();
 
-  const config = {
-    animation: 'spring',
-    config: {
-      stiffness: 1000,
-      damping: 70,
-      mass: 3,
-      overshootClamping: true,
-      restDisplacementThreshold: 0.01,
-      restSpeedThreshold: 0.01,
-    },
-  };
+  // const config = {
+  //   animation: 'spring',
+  //   config: {
+  //     stiffness: 1000,
+  //     damping: 70,
+  //     mass: 3,
+  //     overshootClamping: true,
+  //     restDisplacementThreshold: 0.01,
+  //     restSpeedThreshold: 0.01,
+  //   },
+  // };
 
 
   return (
@@ -56,14 +56,14 @@ export const NavStack = ()=>{
             }
         }
       >
-      <Stack.Screen 
+      {/* <Stack.Screen 
           name="Loading"
           component={Loading}
           options={{
             header: ()=> null
           }
           }
-        />
+        /> */}
          <Stack.Screen 
           name="Login"
           component={Login}

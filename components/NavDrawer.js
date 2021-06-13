@@ -28,11 +28,14 @@ import SideBar from "./SideBar";
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-export default function NavDrawer({ navigation }) {
-  const avatar = require("../assets/images/Icon/Xaypanya.jpg");
+export default function NavDrawer({ navigation, route }) {
+
+  const {name , email, photoUrl} = route.params;
+  const AvatarImg = photoUrl ? {uri: photoUrl} : require("../assets/images/Icon/Xaypanya.jpg");
+
 
   const profileHandler = () => {
-    navigation.navigate("Profile");
+    navigation.navigate("Profile", {AvatarImg, name});
   };
 
   return (
@@ -46,7 +49,7 @@ export default function NavDrawer({ navigation }) {
         headerRight: () => {
           return (
             <TouchableOpacity onPress={() => profileHandler()}>
-              <Image style={GbStyle.avatar} source={avatar} />
+              <Image style={GbStyle.avatar} source={AvatarImg} />
             </TouchableOpacity>
           );
         },

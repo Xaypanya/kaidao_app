@@ -1,16 +1,54 @@
-import React, { Component } from "react";
+import React, {useState } from "react";
 import {
   View,
   Text,
   Image,
   StyleSheet,
-  Touchable,
   TouchableHighlight,
+  ToastAndroid,
+  ActivityIndicator
 } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 const mascot = require("../assets/images/Icon/KaRainz.png");
 
-const Login = () => {
+import * as Google from 'expo-google-app-auth';
+
+const Login = ({navigation, route}) => {
+  
+  const [googleSubmitting, setGoogleSubmitting] = useState(false);
+
+  const handleGoogleSignin = () => {
+
+    setGoogleSubmitting(true);
+    const config = {
+      iosClientId: `395331947715-fotna0uqhi3uqsj4bvcgvjao72kulaiu.apps.googleusercontent.com`, 
+      androidClientId: `395331947715-hibrq4iek5tdi4gburhm1pnu9ikgesm4.apps.googleusercontent.com`,
+      scopes: ['profile', 'email'] }
+    
+    Google
+    .logInAsync(config)
+    .then((result)=> {
+      const {type, user} = result;
+
+      if( type === 'success'){
+        const {email, name, photoUrl} = user;
+
+        ToastAndroid.show('ເຂົ້າສູ່ລະບົບສຳເລັດ', ToastAndroid.SHORT);
+        setTimeout(()=>navigation.navigate('NavDrawer',{email,name,photoUrl}), 1000);
+      }else {
+        ToastAndroid.show('ກະລຸນາລອງໃໝ່ອີກຄັ້ງ!', ToastAndroid.SHORT);
+      }
+      setGoogleSubmitting(false);
+    })
+    .catch(error => {
+      console.log(error);
+      ToastAndroid.show('ບັນຫາເກີດຂຶ້ນ, ກະລຸນາລອງໃໝ່ອີກຄັ້ງ!', ToastAndroid.SHORT);
+      setGoogleSubmitting(false);
+    })
+  };
+
+
+
   return (
     <View style={styles.container}>
       <Image
@@ -19,10 +57,11 @@ const Login = () => {
         source={mascot}
       />
       <Text style={styles.loginText}>ເຂົ້າສູລະບົບ</Text>
-      <TouchableHighlight
+      {!googleSubmitting && 
+        <TouchableHighlight
         style={{ borderRadius: 7 }}
         underlayColor="#357e79"
-        onPress={() => console.log("google firsebase")}
+        onPress={handleGoogleSignin}
       >
         <View
           style={{
@@ -30,8 +69,8 @@ const Login = () => {
             backgroundColor: "#f8f8f8",
             alignItems: "center",
             borderRadius: 7,
-            paddingHorizontal: 15,
-            paddingVertical: 5,
+            width: 220,
+            height: 35,
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
@@ -41,6 +80,30 @@ const Login = () => {
           <Text style={styles.btnText}>ດຳເນີນການຕໍ່ດ້ວຍ Google</Text>
         </View>
       </TouchableHighlight>
+      }
+
+      {googleSubmitting && 
+        <TouchableHighlight
+        style={{ borderRadius: 7 }}
+        disabled={true}
+      >
+        <View
+          style={{
+            elevation: 2,
+            backgroundColor: "#f8f8f8",
+            alignItems: "center",
+            borderRadius: 7,
+            width: 220,
+            height: 35,
+            paddingVertical: 5,
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+           <ActivityIndicator size="small" color="#000"/>
+        </View>
+      </TouchableHighlight>}
     </View>
   );
 };
