@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState,useContext } from "react";
 import {
   View,
   Text,
@@ -9,13 +9,21 @@ import {
   ActivityIndicator
 } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
-const mascot = require("../assets/images/Icon/KaRainz.png");
+
 
 import * as Google from 'expo-google-app-auth';
+//async storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+//credentials context
+import { CredentialsContext } from "./CredentialsContext";
+
+const mascot = require("../assets/images/Icon/KaRainz.png");
 
 const Login = ({navigation, route}) => {
   
   const [googleSubmitting, setGoogleSubmitting] = useState(false);
+  //context
+  const {storedCredentials,setStoredCredentials} = useContext(CredentialsContext);
 
   const handleGoogleSignin = () => {
 
@@ -34,7 +42,8 @@ const Login = ({navigation, route}) => {
         const {email, name, photoUrl} = user;
 
         ToastAndroid.show('ເຂົ້າສູ່ລະບົບສຳເລັດ', ToastAndroid.SHORT);
-        setTimeout(()=>navigation.navigate('NavDrawer',{email,name,photoUrl}), 1000);
+        setTimeout(()=>navigation.navigate('NavDrawer'), 1000);
+        persistLogin({email,name,photoUrl});
       }else {
         ToastAndroid.show('ກະລຸນາລອງໃໝ່ອີກຄັ້ງ!', ToastAndroid.SHORT);
       }
@@ -47,7 +56,16 @@ const Login = ({navigation, route}) => {
     })
   };
 
-
+  const persistLogin = (credentials) => {
+    AsyncStorage.setItem('kaidaoCredentials', JSON.stringify(credentials))
+    .then(()=>{
+      setStoredCredentials(credentials);
+      console.log("persisting success");
+    })
+    .catch((error)=> {
+      console.log(error);
+    })
+  }
 
   return (
     <View style={styles.container}>

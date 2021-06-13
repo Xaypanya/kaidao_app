@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { DrawerActions} from "@react-navigation/native";
 import {
   AntDesign,
@@ -23,14 +23,20 @@ import {
 } from "react-native";
 import { GbStyle } from "../components/GbStyle";
 import SideBar from "./SideBar";
+//async storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+//credentials context
+import { CredentialsContext } from "./CredentialsContext";
 
 
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-export default function NavDrawer({ navigation, route }) {
+export default function NavDrawer({ navigation}) {
 
-  const {name , email, photoUrl} = route.params;
+  //context
+  const {storedCredentials,setStoredCredentials} = useContext(CredentialsContext);
+  const {name , email, photoUrl} = storedCredentials;
   const AvatarImg = photoUrl ? {uri: photoUrl} : require("../assets/images/Icon/Xaypanya.jpg");
 
 
