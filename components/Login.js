@@ -26,7 +26,6 @@ const Login = ({navigation, route}) => {
   const {storedCredentials,setStoredCredentials} = useContext(CredentialsContext);
 
   const handleGoogleSignin = () => {
-
     setGoogleSubmitting(true);
     const config = {
       iosClientId: `395331947715-fotna0uqhi3uqsj4bvcgvjao72kulaiu.apps.googleusercontent.com`, 

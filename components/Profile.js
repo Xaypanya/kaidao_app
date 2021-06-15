@@ -21,9 +21,7 @@ export default function Profile({navigation, route}) {
         AsyncStorage.removeItem('kaidaoCredentials')
         .then(()=>{
             setStoredCredentials("");
-            setInterval(()=> {
-                navigation.navigate("Login");
-            }, 2000)
+            navigation.replace("Login"); 
         })
         .catch(error=> console.log(error))
     }

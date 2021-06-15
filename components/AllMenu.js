@@ -27,6 +27,7 @@ export default function AllMenu({ navigation }) {
   const filterDataList = DataList.filter((data)=> {
     return data.title.includes(searchText);
 })
+
   
   let {SeachBox, imageContainer, imageStyle, imageText, First_imageContainer} = styles;
 
