@@ -5,30 +5,20 @@ import Defago from "./assets/fonts/NotoSansLao-Regular.ttf";
 import { NavStack } from "./components/NavStack";
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { useFonts } from 'expo-font';
-import { StatusBar } from "expo-status-bar";
+//firebase
+import firebase from "firebase";
 //app loading
 import AppLoading from "expo-app-loading";
 //async storage
 import AsyncStorage from "@react-native-async-storage/async-storage";
 //credentials context
 import { CredentialsContext } from "./components/CredentialsContext";
+import { firebaseConfig } from "./components/Config";
+import 'firebase/firestore';
 
+firebase.initializeApp(firebaseConfig);
 
-
-  // // Your web app's Firebase configuration
-  // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  // var firebaseConfig = {
-  //   apiKey: "AIzaSyBr7YN668YYWyB7TNJDmU85vTuQ4RKpmBc",
-  //   authDomain: "kaidao-96674.firebaseapp.com",
-  //   projectId: "kaidao-96674",
-  //   storageBucket: "kaidao-96674.appspot.com",
-  //   messagingSenderId: "395331947715",
-  //   appId: "1:395331947715:web:1d376eaaeb72e6158a2676",
-  //   measurementId: "G-MG6RN4V3B1"
-  // };
-  // // Initialize Firebase
-  // firebase.initializeApp(firebaseConfig);
-
+export const db = firebase.firestore();
 
 
 export default function App() {

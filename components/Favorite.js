@@ -6,7 +6,7 @@ export default function Favorite() {
 
     return (
         <View style={GbStyle.container}>
-            <Text style={GbStyle.text}>Favorite</Text>
+            <Text style={GbStyle.text}>ຈະເປີດໃຫ້ໃຊ້ໃນໄວໆນີ້</Text>
         </View>
     )
 }

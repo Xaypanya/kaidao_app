@@ -30,11 +30,11 @@ export default function MenuDetails({ navigation, route }) {
     type,
   } = route.params;
 
-  const ingredientElements = ingredient.map((item,index)=> {
+  const ingredientElements = ingredient ? ingredient.map((item,index)=> {
     return (
       <Text key={index} style={{fontFamily: 'Defago', fontSize: 16}}>{item}</Text>
     )
-  })
+  }) : null;
 
   const ingredient02Elements = ingredient02 ? ingredient02.map((item,index)=> {
     return (
@@ -48,17 +48,17 @@ export default function MenuDetails({ navigation, route }) {
     )
   }) : null;
 
-  const cookingElements = cooking.map((item,index)=> {
+  const cookingElements = cooking ? cooking.map((item,index)=> {
     return (
       <Text key={index} style={{fontFamily: 'Defago', fontSize: 16, marginBottom: 8}}>{item}</Text>
     )
-  })
+  }) : null;
 
-  const unitElements = unit.map((item,index)=> {
+  const unitElements = unit ? unit.map((item,index)=> {
     return (
       <Text key={index} style={{fontFamily: 'Defago', fontSize: 16}}>{item}</Text>
     )
-  })
+  }) : null;
 
   const allIngredient = (
     <View style={{paddingHorizontal: 20, paddingBottom: 50, flex: 1}}>
@@ -140,6 +140,8 @@ export default function MenuDetails({ navigation, route }) {
     tabText,
   } = styles;
 
+  // console.log(thumbnailUrl);
+
   return (
     // container
     <View style={container}>
@@ -158,7 +160,7 @@ export default function MenuDetails({ navigation, route }) {
             <Image
               style={{ width: WxH, height: WxH, borderRadius: 20 }}
               resizeMode="cover"
-              source={thumbnailUrl}
+              source={{uri: thumbnailUrl}}
             />
             <View
               style={{
@@ -169,10 +171,12 @@ export default function MenuDetails({ navigation, route }) {
                 bottom: 0,
                 justifyContent: "flex-end",
                 alignItems: "center",
+                paddingHorizontal: 9,
                 paddingBottom: 5,
               }}
             >
               <Text
+                numberOfLines={1} ellipsizeMode='tail'
                 Text
                 style={{ color: "#fff", fontFamily: "Defago", fontSize: 18 }}
               >

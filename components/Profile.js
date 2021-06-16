@@ -35,7 +35,7 @@ export default function Profile({navigation, route}) {
                     source={AvatarImg}
                     />
                     <Text style={{color: '#000000',fontFamily: 'Defago-Bold', fontSize: 16,marginBottom: 10}}>{name ? name.toUpperCase() : 'Octopus Kaidao'}</Text>
-                    <Text style={{color: '#000000',fontFamily: 'Defago-Bold', fontSize: 16,marginBottom: 10}}>ເມນູຕິດດາວ: 2</Text>
+                    <Text style={{color: '#000000',fontFamily: 'Defago-Bold', fontSize: 16,marginBottom: 10}}>ເມນູຕິດດາວ: 0</Text>
                     <Button block danger style={{width: 150, height: 35, borderRadius: 10}} onPress={clearLogin}>
                     <MaterialIcons name="exit-to-app" size={24} color="#FFF" style={{marginRight: 5}}/>
                     <Text style={{color: '#fff',fontFamily: 'Defago-Bold', fontSize: 16,}}>ອອກຈາກລະບົບ</Text>
