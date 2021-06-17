@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "395331947715",
+    "project_id": "kaidao-96674",
+    "storage_bucket": "kaidao-96674.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395331947715:android:976e690a8ff416bb8a2676",
+        "android_client_info": {
+          "package_name": "com.kaidao.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395331947715-egdl01oh792it1n3af6dom9il5knfe4d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kaidao.dev",
+            "certificate_hash": "dd7d309d61345fd5da27063f070b433458ebb0d1"
+          }
+        },
+        {
+          "client_id": "395331947715-30clt9si3d39veqlug41foppl7h2c1vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOjlEIT893nyiSfirVXlunrh9bz754PzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395331947715-30clt9si3d39veqlug41foppl7h2c1vf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395331947715-fotna0uqhi3uqsj4bvcgvjao72kulaiu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -20,68 +20,6 @@ const mascot = require("../assets/images/Icon/KaRainz.png");
 
 const Login = ({navigation, route}) => {
 
-  const onSignIn = (googleUser) => {
-    console.log('Google Auth Response', googleUser);
-
-    // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-    var unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
-      unsubscribe();
-      // Check if we are already signed-in Firebase with the correct user.
-      if (!isUserEqual(googleUser, firebaseUser)) {
-        // Build Firebase credential with the Google ID token.
-        var credential = firebase.auth.GoogleAuthProvider.credential(
-            googleUser.idToken,
-            googleUser.accessToken
-          );
-  
-        // Sign in with credential from the Google user.
-        firebase
-        .auth()
-        .signInWithCredential(credential)
-        .then((result)=>{
-          console.log('user signed in');
-          console.log("name = " + result.user.name);
-          console.log(result.user.email);
-          console.log(result.user.photoURL);
-          firebase
-          .database()
-          .ref('users/'+ result.uid)
-          .set({
-            gmail: result.user.email,
-            profile_picture: result.user.photoURL,
-            user_name: result.user.name,
-          })
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          // ...
-        });
-      } else {
-        console.log('User already signed-in Firebase.');
-      }
-    });
-  }
-
-
-  const isUserEqual = (googleUser, firebaseUser) => {
-    if (firebaseUser) {
-      var providerData = firebaseUser.providerData;
-      for (var i = 0; i < providerData.length; i++) {
-        if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
-            providerData[i].uid === googleUser.user.id) {
-          // We don't need to reauth the Firebase connection.
-          return true;
-        }
-      }
-    }
-    return false;
-  }
   
   const [googleSubmitting, setGoogleSubmitting] = useState(false);
   //context
@@ -90,8 +28,11 @@ const Login = ({navigation, route}) => {
   const handleGoogleSignin = () => {
     setGoogleSubmitting(true);
     const config = {
+      behavior: 'web',
       iosClientId: `395331947715-fotna0uqhi3uqsj4bvcgvjao72kulaiu.apps.googleusercontent.com`, 
       androidClientId: `395331947715-hibrq4iek5tdi4gburhm1pnu9ikgesm4.apps.googleusercontent.com`,
+      androidStandaloneAppClientId: `395331947715-egdl01oh792it1n3af6dom9il5knfe4d.apps.googleusercontent.com`,
+      iosStandaloneAppClientId: `395331947715-fotna0uqhi3uqsj4bvcgvjao72kulaiu.apps.googleusercontent.com`, 
       scopes: ['profile', 'email'] }
     
     Google
@@ -101,7 +42,6 @@ const Login = ({navigation, route}) => {
 
       if( type === 'success'){
         const {email, name, photoUrl} = user;
-        onSignIn(result);
         ToastAndroid.show('ເຂົ້າສູ່ລະບົບສຳເລັດ', ToastAndroid.SHORT);
         setTimeout(()=>navigation.navigate('NavDrawer'), 1000);
         persistLogin({email,name,photoUrl});

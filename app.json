@@ -24,7 +24,8 @@
         "foregroundImage": "./assets/ic_launcher.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.kaidao.dev"
+      "package": "com.kaidao.dev",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
