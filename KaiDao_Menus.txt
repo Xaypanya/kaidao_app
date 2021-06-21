@@ -196,3 +196,74 @@
 - facebook//Kha-Nom-Warn
 - https://cooking.kapook.com
 - https://www.pinterest.com
+
+
+
+
+
+
+
+Object {
+  "additionalUserInfo": qg {
+    "isNewUser": true,
+    "profile": Object {
+      "at_hash": "o_gPnD8cg3EYgmpTVxQXPA",
+      "aud": "395331947715-hibrq4iek5tdi4gburhm1pnu9ikgesm4.apps.googleusercontent.com",
+      "azp": "395331947715-hibrq4iek5tdi4gburhm1pnu9ikgesm4.apps.googleusercontent.com",
+      "email": "farsanun99@gmail.com",
+      "email_verified": true,
+      "exp": 1623955023,
+      "family_name": "Wunwai",
+      "given_name": "Farsanun",
+      "iat": 1623951423,
+      "iss": "https://accounts.google.com",
+      "locale": "en-GB",
+      "name": "Farsanun Wunwai",
+      "picture": "https://lh3.googleusercontent.com/a-/AOh14GjuAwQlTErIRiALQ6-t6EGlkffGDmhv7X97jCZI6w=s96-c",
+      "sub": "115347954645157955644",
+    },
+    "providerId": "google.com",
+  },
+  "credential": Object {
+    "oauthAccessToken": "ya29.a0AfH6SMCHFRaO2p1mhYEU16VAo32J8E1ocgO1EeiDvb35MR7uTArgrMAUCwxrQg2qQV57bpy4jm5S_Kb_EVrbmZZtnDCdDOnKGmwfjlO_aPD3QH7FUCuzbjGVr7o9uJeLhrSOW94sw7Vtyx3D1y5iiWAofHF7",
+    "oauthIdToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE5ZmUyYTdiNjc5NTIzOTYwNmNhMGE3NTA3OTRhN2JkOWZkOTU5NjEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzOTUzMzE5NDc3MTUtaGlicnE0aWVrNXRkaTRnYnVyaG0xcG51OWlrZ2VzbTQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIzOTUzMzE5NDc3MTUtaGlicnE0aWVrNXRkaTRnYnVyaG0xcG51OWlrZ2VzbTQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTUzNDc5NTQ2NDUxNTc5NTU2NDQiLCJlbWFpbCI6ImZhcnNhbnVuOTlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJvX2dQbkQ4Y2czRVlnbXBUVnhRWFBBIiwibmFtZSI6IkZhcnNhbnVuIFd1bndhaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHanVBd1FsVEVySVJpQUxRNi10NkVHbGtmZkdEbWh2N1g5N2pDWkk2dz1zOTYtYyIsImdpdmVuX25hbWUiOiJGYXJzYW51biIsImZhbWlseV9uYW1lIjoiV3Vud2FpIiwibG9jYWxlIjoiZW4tR0IiLCJpYXQiOjE2MjM5NTE0MjMsImV4cCI6MTYyMzk1NTAyM30.ymsu8BWc96dYxrcqY-46op6WX0Ri4iBJo-dYAedBOZk5FHZT8DR_k8u6itAAKVa-EAXQpjyjBeE-apAbMtPrAb9bAgFMagRAl-DIpCt3T1G-Se7L4jYSFAnD8j4w8ttJM3Gl1uwpDvc3rSTfEsHsEta7RKymhtNE8XbsGfjPp7az3-7D2sbPDCAUwqc7V8Cpjjgc2LCET7iQggSKoXeTSskqD0pHDeAidHI9lKpKJWj-dUKJTp_WT4uy2ZIGGb51MMKoHmjMfuAhwNfoZIWxUaXOJPtFjChO9vYQfhTMDJBYXJCqYRymxkfh3vM-7QgyqttBQsR5mxjWRJOTsOkPaQ",
+    "providerId": "google.com",
+    "signInMethod": "google.com",
+  },
+  "operationType": "signIn",
+  "user": Object {
+    "apiKey": "AIzaSyBr7YN668YYWyB7TNJDmU85vTuQ4RKpmBc",
+    "appName": "[DEFAULT]",
+    "authDomain": "kaidao-96674.firebaseapp.com",
+    "createdAt": "1623951424228",
+    "displayName": "Farsanun Wunwai",
+    "email": "farsanun99@gmail.com",
+    "emailVerified": true,
+    "isAnonymous": false,
+    "lastLoginAt": "1623951424229",
+    "multiFactor": Object {
+      "enrolledFactors": Array [],
+    },
+    "phoneNumber": null,
+    "photoURL": "https://lh3.googleusercontent.com/a-/AOh14GjuAwQlTErIRiALQ6-t6EGlkffGDmhv7X97jCZI6w=s96-c",
+    "providerData": Array [
+      Object {
+        "displayName": "Farsanun Wunwai",
+        "email": "farsanun99@gmail.com",
+        "phoneNumber": null,
+        "photoURL": "https://lh3.googleusercontent.com/a-/AOh14GjuAwQlTErIRiALQ6-t6EGlkffGDmhv7X97jCZI6w=s96-c",
+        "providerId": "google.com",
+        "uid": "115347954645157955644",
+      },
+    ],
+    "redirectEventId": null,
+    "stsTokenManager": Object {
+      "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRjNGQwMGJjM2NiZWE4YjU0NTMzMWQxZjFjOTZmZDRlNjdjNTFlODkiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiRmFyc2FudW4gV3Vud2FpIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdqdUF3UWxURXJJUmlBTFE2LXQ2RUdsa2ZmR0RtaHY3WDk3akNaSTZ3PXM5Ni1jIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2thaWRhby05NjY3NCIsImF1ZCI6ImthaWRhby05NjY3NCIsImF1dGhfdGltZSI6MTYyMzk1MTQyNCwidXNlcl9pZCI6Ik1VeXdTSGU4R2NQWGZBc1RtNTVNbzE4ZnE5dzEiLCJzdWIiOiJNVXl3U0hlOEdjUFhmQXNUbTU1TW8xOGZxOXcxIiwiaWF0IjoxNjIzOTUxNDI0LCJleHAiOjE2MjM5NTUwMjQsImVtYWlsIjoiZmFyc2FudW45OUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExNTM0Nzk1NDY0NTE1Nzk1NTY0NCJdLCJlbWFpbCI6WyJmYXJzYW51bjk5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.kbWS37wGM84PnypaCJ_GdtTEOm8lDuzyf7c9Od_vBEKMZ3XdsTlRO9O_qS0Q9Mccvn2pzw2GMq4WV4Mz-dCarRx22pxC-_SSAB30SxpgMZPpvKN5-A-G9cP_mc6tzq-6EPidmtOZOiOm3DiBGmv2SVpnXUDExyR5GNwg8O2CKRNIXbeLsVtAJcAcxN-OplbteEJiX50H39pGlcuJ7NRF8yaYYNTRM6V7LeYdi-k6y3sptF0T4tCskFTgJs32cDWkjbQKNIw2KnrPsJh3FzBmbasIXdCyDw3xxvLolndhb7HbIjz45JO8ehFW9ldZQ1G5OKmhwFQ7D6mSCQmCwLqiJA",     
+      "apiKey": "AIzaSyBr7YN668YYWyB7TNJDmU85vTuQ4RKpmBc",
+      "expirationTime": 1623955023930,
+      "refreshToken": "AGEhc0C9la353BcUY1BXGxi1VXgc9T6BTJdgqEwZxwRev4mRyJMKkBANoN6P-Tsg8ZUFlHcOgj7bYHgcgTevXWpIwsqu5gKH1i-A6vq8bn5OzuiXWfSwL_Ek1mb2UxOgKtFhB4SZoGc1XQRZSsalmMSBhQfsYW9-IDn7lsnVVmi0od-yACQ0Tq7Z2h3keZAt560GGqk03adOROzwHyctfQaa4YXHF9OKzvR0GgLXejpTVBIplm7dqQ-LKDsg9uyU3sThhtw9l4dEF61Nt7oREsxmW85hQb6vz2cI6L2oW63Su0N9JHEjJKIPkL0lzRewCzUGgMzjcyb7Do4Lo0FitXl_Znv4L5zlNZAeSt15B4xhqvkYPOzsUK29IkeiPderXbV1txYVeIX6lVMuxRgeSEQ5vSny4cBQ5XmIuEXsoC81NpAqgyCw2S4",
+    },
+    "tenantId": null,
+    "uid": "MUywSHe8GcPXfAsTm55Mo18fq9w1",
+  },
+}

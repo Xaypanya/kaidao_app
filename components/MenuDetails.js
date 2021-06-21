@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -13,9 +13,16 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import Drink from "./Drink";
+import { db } from "../App";
+import { CredentialsContext } from "./CredentialsContext";
 
 export default function MenuDetails({ navigation, route }) {
-  //from data we have
+  const [stared, setStared] = useState();
+  const [favoriteDocCount, setFavoriteDocCount] = useState([]);
+  const { storedCredentials, setStoredCredentials } =
+  useContext(CredentialsContext);
+
+  const { email } = storedCredentials;
   //thumbnailUrl, title,ingredientHeader, ingredient, unit, ingredient02, ingredient02, cooking, key
 
   const {
@@ -28,7 +35,80 @@ export default function MenuDetails({ navigation, route }) {
     ingredientHeader,
     cooking,
     type,
+    key
   } = route.params;
+
+  
+
+  useEffect(() => {
+    let isMounted = true; 
+    db.collection("users")
+      .doc(email)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          //    console.log("Document data:", doc.data());
+          console.log("Menu details: Data Retrieve = ", doc.data().favoriteDoc);
+          setFavoriteDocCount(doc.data().favoriteDoc);
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+        // console.log(allMenus)
+      })
+      .catch((error) => console.log(error))
+      return () => { isMounted = false };
+  },[]);
+
+
+
+
+  const handlerAddMenuStar = () => {
+    console.log(" 1.stared = "+stared);
+   
+    console.log(" 2.stared = "+stared);
+    console.log(stared);
+    const RemoveFovorite = favoriteDocCount.filter((removeFavorite)=> {
+      return removeFavorite !== key
+    })
+    const AddnewFavorite = [...RemoveFovorite,key];
+    // console.log(AddnewFavorite);
+    // console.log(RemoveFovorite);
+    if(!stared){
+     db.collection("users").doc(email).update({
+       favoriteDoc:  AddnewFavorite
+     })
+     console.log("Added " + key)
+     setFavoriteDocCount(AddnewFavorite)
+    }else{
+     db.collection("users").doc(email).update({
+       favoriteDoc:  RemoveFovorite
+     })
+     console.log("Removed " + key); 
+      setFavoriteDocCount(RemoveFovorite)
+    }
+
+    setStared((prev)=> !prev);
+  
+   }
+
+  
+   useEffect(()=> {
+    
+    
+    for(let i = 0; i < favoriteDocCount.length; i++){
+      if(key === favoriteDocCount[i]){
+        console.log("Key is Equal "+ key + " = " + favoriteDocCount[i]);
+        setStared(true);
+      }
+    }
+  })
+  
+ 
+
+  console.log("FavoriteDocCount = ",favoriteDocCount);
+  // console.log("Item Selected Key = " + key);
+
 
   const ingredientElements = ingredient ? ingredient.map((item,index)=> {
     return (
@@ -94,15 +174,10 @@ export default function MenuDetails({ navigation, route }) {
     </View>
   )
 
-  
-  const [stared, setStared] = useState(false);
+  const placeholder = require('../assets/MenuPlaceholder.jpg');
   const [isIngredient, setIsIngredient] = useState(true);
   const [isCooking, setIsCooking] = useState(false);
 
-  const staredHandler = () => {
-    setStared(true);
-    
-  }
 
   const handleIngredient = ()=> {
     setIsIngredient(true);
@@ -113,13 +188,17 @@ export default function MenuDetails({ navigation, route }) {
     setIsIngredient(false);
     setIsCooking(true);
   }
+  
+  
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity
           style={{ marginRight: 10 }}
-          onPress={() => setStared((prev) => !prev)}
+          onPress={() => {
+            handlerAddMenuStar();
+          }}
         >
           <AntDesign name={stared ? "star" : "staro"} size={26} color="black" />
         </TouchableOpacity>
@@ -157,6 +236,13 @@ export default function MenuDetails({ navigation, route }) {
               elevation: 5,
             }}
           >
+           <Image
+              style={{position: "absolute", top: 0,
+              left: 0,  width: WxH, height: WxH,borderRadius: 20 }}
+              resizeMode="cover"
+              // source={{uri: item.thumbnailUrl}}
+              source={placeholder}
+            />
             <Image
               style={{ width: WxH, height: WxH, borderRadius: 20 }}
               resizeMode="cover"
@@ -188,6 +274,7 @@ export default function MenuDetails({ navigation, route }) {
         <View style={{ flex: 1, height: "100%", paddingTop: 20 }}>
           <Text style={bannerText}>ຊື່ເມນູ: {title}</Text>
           <Text style={bannerText}>ປະເພດ: {type}</Text>
+          {/* <Text style={bannerText}>Stared: { " === " +stared }</Text> */}
         </View>
       </View>
 

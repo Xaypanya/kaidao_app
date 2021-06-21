@@ -101,6 +101,13 @@ export default function AllMenu({ navigation }) {
             borderRadius: 23,
           }}
         >
+        <Image
+              style={{position: "absolute", top: 0,
+              left: 0,  width: WxH, height: WxH,borderRadius: 20 }}
+              resizeMode="cover"
+              // source={{uri: item.thumbnailUrl}}
+              source={placeholder}
+        />
           <View>
             <Image
               style={{ width: WxH, height: WxH, borderRadius: 20 }}

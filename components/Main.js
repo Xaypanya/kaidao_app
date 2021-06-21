@@ -61,10 +61,7 @@ export default function Main({ navigation }) {
 
   let {
     SeachBox,
-    imageContainer,
-    imageStyle,
-    imageText,
-    First_imageContainer,
+    imageText
   } = styles;
 
   const renderItems = ({ item, index }) => {
@@ -97,6 +94,13 @@ export default function Main({ navigation }) {
             borderRadius: 23,
           }}
         >
+         <Image
+              style={{position: "absolute", top: 0,
+              left: 0,  width: WxH, height: WxH,borderRadius: 20 }}
+              resizeMode="cover"
+              // source={{uri: item.thumbnailUrl}}
+              source={placeholder}
+        />
           <Image
             style={{ width: WxH, height: WxH, borderRadius: 20 }}
             resizeMode="cover"
@@ -188,18 +192,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     elevation: 5,
   },
-  First_imageContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    height: 170,
-    margin: 7,
-    borderRadius: 20,
-    elevation: 5,
-  },
   imageText: {
     color: "#fff",
     fontFamily: "Defago",
-    fontSize: 18,
+    fontSize: 18
   },
 });

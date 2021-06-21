@@ -103,6 +103,13 @@ export default function Drink({ navigation }) {
             borderRadius: 23,
           }}
         >
+         <Image
+              style={{position: "absolute", top: 0,
+              left: 0,  width: WxH, height: WxH,borderRadius: 20 }}
+              resizeMode="cover"
+              // source={{uri: item.thumbnailUrl}}
+              source={placeholder}
+        />
           <Image
             style={{ width: WxH, height: WxH, borderRadius: 20 }}
             resizeMode="cover"

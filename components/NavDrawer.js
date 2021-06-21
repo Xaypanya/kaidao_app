@@ -41,7 +41,7 @@ export default function NavDrawer({ navigation}) {
 
 
   const profileHandler = () => {
-    navigation.navigate("Profile", {AvatarImg, name});
+    navigation.navigate("Profile", {AvatarImg, name, email});
   };
 
   return (
