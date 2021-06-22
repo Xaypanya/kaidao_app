@@ -24,7 +24,6 @@ export default function SideBar({ progress, ...props }) {
 
   return (
     <TouchableWithoutFeedback onPress={()=> Keyboard.dismiss()}>
- 
       <Container>
       <Header style={{backgroundColor: '#b3f3ef', height:140, alignItems: 'center'}}>
       <StatusBar barStyle="light-content" />

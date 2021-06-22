@@ -1,11 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image, Linking, TouchableOpacity,ToastAndroid } from "react-native";
 const Kaidao = require("../assets/ic_launcher.png");
 const Gan = require("../assets/Gans_profile.png");
 const Pap = require("../assets/Paps_profile.png");
 const Xang = require("../assets/Xangs_profile.png");
+const Fb = require("../assets/Facebook_page.png");
 
-export default function Main() {
+
+export default function About() {
+
+  const onPressLinking = () => {
+    ToastAndroid.show("ກຳລັງດຳເນີນການ...", ToastAndroid.SHORT);
+    setTimeout(()=> {
+      Linking.openURL('https://www.facebook.com/KaiDaoDev-108090754832212')
+    },2000)
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView styles={{ flex: 1 }}>
@@ -24,6 +34,7 @@ export default function Main() {
             resizeMode="stretch"
             source={Kaidao}
           />
+          <Text style={{fontFamily: 'Defago', fontSize: 17, color: '#4b4b4bc3'}}>Version: 1.0.0</Text>
           <Text style={styles.title}>ໄຂ່ດາວ</Text>
           <Text style={styles.paragraph}>
             ເປັນແອັບທີ່ຮວບຮ່ວມເອົາສູດອາຫານລາວທີ່ທຸກຄົນສາມາດ ເຮັດຕາມໄດ້ ແລະ
@@ -31,7 +42,6 @@ export default function Main() {
           </Text>
 
       
-
           <Text style={styles.title}>ພັດທະນາໂດຍ</Text>
 
           {/* Gan */}
@@ -58,7 +68,21 @@ export default function Main() {
               <Text style={styles.paragraph}>ຄວທ, ການພັດທະນາເວັບໄຊ</Text>
             </View>
           </View>
+
+          <Text style={styles.title}>ຕິດຕາມພວກເຮົາໄດ້ທີ່</Text>
+
+          {/* Facebook Page */}
+         <TouchableOpacity onPress={()=> onPressLinking()}>
+         <View style={{ flexDirection: "row", marginBottom: 15 }}>
+            <Image style={{width: 70, height: 70}} resizeMode="contain" source={Fb} />
+          </View>
+         </TouchableOpacity>
+         <Text style={{fontFamily: 'Defago', fontSize: 17, color: '#4b4b4bc3', marginBottom: 50}}>Facebook/KaiDao.Dev</Text>
+
+
+
           <Text style={styles.title}>ຂອບໃຈແຫຼ່ງຂໍ້ມູນ</Text>
+          
 
           <View style={{paddingLeft: 5}}>
 <Text style={styles.credit}>- ປື້ມແບບຮຽນ ວິຊາການເຮືອນ ມ 5</Text>

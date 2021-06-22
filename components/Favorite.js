@@ -20,16 +20,17 @@ export default function Favorite({navigation, route}) {
     useContext(CredentialsContext);
   const { email } = storedCredentials;
   const [favoriteDocCount, setFavoriteDocCount] = useState([]);
-
+  const [isEmpty, setIsEmpty] = useState(true);
+  
   useEffect(() => {
     db.collection("users")
-      .doc(email)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          //    console.log("Document data:", doc.data());
-          // console.log("Favoooo:", doc.data().favoriteDoc);
-        } else {
+    .doc(email)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        //    console.log("Document data:", doc.data());
+        // console.log("Favoooo:", doc.data().favoriteDoc);
+      } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
         }
@@ -38,11 +39,12 @@ export default function Favorite({navigation, route}) {
         // console.log(allMenus)
       })
       .catch((error) => console.log(error));
-  });
-
-  const favoriteDocCountValue = favoriteDocCount ? Object.values(favoriteDocCount) : null;
-
-  // console.log("count" + favoriteDocCount.length);
+    });
+    
+    const favoriteDocCountValue = favoriteDocCount ? Object.values(favoriteDocCount) : null;
+   
+    
+    // console.log("count" + favoriteDocCount.length);
   // console.log("value",favoriteDocCountValue);
   const [allMenus, setAllMenus] = useState([{}]);
 
@@ -128,12 +130,16 @@ export default function Favorite({navigation, route}) {
 
   return (
     <View style={styles.container}>
-      <FlatList
+      {
+        favoriteDocCount.length > 1 ?
+        <FlatList
         data={formatedAllMenu}
         renderItem={renderItem}
         key={(item, index) => index.toString()}
         style={{ flex: 1, alignSelf: "stretch",  paddingHorizontal: 9 }}
       />
+      : <Text style={{fontFamily: 'Defago-Bold', color: '#0000006f', fontSize: 20}}>ທ່ານຍັງບໍ່ມີເມນູທີ່ຕິດດາວ  😵</Text>
+      }
     </View>
   );
 }
