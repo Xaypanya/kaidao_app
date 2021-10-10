@@ -55,6 +55,8 @@ export default function Profile({navigation, route}) {
         .catch(error=> console.log(error))
     }
 
+    const menuFavCount = favoriteDocCountValue.length-1 === -1 ? "ກຳລັງໂຫຼດ..." : favoriteDocCountValue.length-1;
+
     return (
         <View style={BgContainer}>
              <View style={container}>

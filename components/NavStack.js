@@ -2,7 +2,6 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createStackNavigator,
-  TransitionPreset,
   TransitionPresets,
 } from "@react-navigation/stack";
 import NavDrawer from "./NavDrawer";

@@ -23,12 +23,12 @@ export const db = firebase.firestore();
 
 export default function App() {
 
-  const getFonts = () => {
-    return Font.loadAsync({
-      "Defago": Defago,
-      "Defago-Bold": DefagoBold,
-    });
-  };
+  // const getFonts = () => {
+  //   return Font.loadAsync({
+  //     "Defago": Defago,
+  //     "Defago-Bold": DefagoBold,
+  //   });
+  // };
   
   
   let [fontsLoaded] = useFonts({

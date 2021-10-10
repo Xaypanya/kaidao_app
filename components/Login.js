@@ -70,6 +70,7 @@ const Login = ({ navigation, route }) => {
           return result.accessToken;
         } else {
           ToastAndroid.show("ກະລຸນາລອງໃໝ່ອີກຄັ້ງ!", ToastAndroid.SHORT);
+          console.log("type =" + type);
         }
         setGoogleSubmitting(false);
       })
@@ -149,26 +150,40 @@ const Login = ({ navigation, route }) => {
   
     const isUserEqual = (googleUser, firebaseUser, userCountValue) => {
      
-      if (firebaseUser) {
-        for (var i = 0; i < userCountValue.length; i++) {
-          // console.log(`Firebase ProvideerData = ${i} ` , userCountValue[i]);
-          // console.log("Google user id = " + googleUser.user.email);
-          if (
-              userCountValue[i] === googleUser.user.email
-          ) {
-            // console.log("is equal return true and it have user in firebase!")
-            console.log(userCountValue[i] +" === "+ googleUser.user.email)
-            // We don't need to reauth the Firebase connection.
-            return true;
-          }
-          else {
-            // console.log("No no it new here");
-            console.log(userCountValue[i] +" !== "+ googleUser.user.email)
-            return false;
-          }
+      // if (firebaseUser) {
+      //   for (var i = 0; i < userCountValue.length; i++) {
+      //     console.log(`Firebase ProvideerData = ${i} ` , userCountValue[i]);
+      //     console.log("Google user id = " + googleUser.user.email);
+      //     if (
+      //         userCountValue[i] === googleUser.user.email
+      //     ) {
+      //       console.log("is equal return true and it have user in firebase!")
+      //       console.log(userCountValue[i] +" === "+ googleUser.user.email)
+      //       // We don't need to reauth the Firebase connection.
+      //       return true;
+      //     }
+      //     else {
+      //       // console.log("No no it new here");
+      //       console.log(userCountValue[i] +" !== "+ googleUser.user.email)
+      //       return false;
+      //     }
+      //   }
+        
+      // }
+
+      if(firebaseUser){
+
+        checkResult = userCountValue.map((user)=> user).includes(googleUser.user.email);   
+
+        if(checkResult){
+          console.log("true user is match");
+          return true
+        }else {
+          console.log("new user is login");
+          return false
         }
       }
-    };
+};
 
 
 
